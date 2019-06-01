@@ -1,0 +1,3 @@
+from .WelcomeObject import WelcomeObject
+from .AssertLogObject import AssertLogObject
+from .HomeObject import HomeObject
