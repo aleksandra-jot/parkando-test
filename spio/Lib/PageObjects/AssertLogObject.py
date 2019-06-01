@@ -3,7 +3,7 @@ from Lib.PageLocators.HomeLocators import HomeLocators
 from Lib.PageLocators.ParkingLocators import ParkingLocators
 from Lib.PageLocators.ConfirmationLocators import ConfirmationLocators
 from TestData.CommonData import *
-
+from TestData.data_test_login import Scenario
 
 class AssertLogObject(object):
     def __init__(self, driver, parking):
@@ -21,6 +21,7 @@ class AssertLogObject(object):
         print('~~~~')
         print('UŻYTKOWNIK ZOSTAŁ PRAWIDŁOWO ZALOGOWANY')
         print('~~~~')
+        print(Scenario.scenario_happy(self))
 
     def assert_badlog(self):
 
@@ -32,6 +33,18 @@ class AssertLogObject(object):
         print('~~~~')
         print('UŻYTKOWNIK NIE ZOSTAŁ ZALOGOWANY')
         print('~~~~')
+        print(Scenario.scenario_sad(self))
+
+    def assert_blank(self):
+        self.locator = HomeLocators()
+
+        alert_locator = self.driver.find_element_by_xpath(self.locator.alert_id_error)
+        alert_text = alert_locator.text
+        assert alert_text == "Numer karty musi zawierać 3 cyfry"
+        print('~~~~')
+        print('UŻYTKOWNIK NIE ZOSTAŁ ZALOGOWANY')
+        print('~~~~')
+        print(Scenario.scenario_blank(self))
 
     def assert_booking(self):
 
@@ -40,7 +53,7 @@ class AssertLogObject(object):
         actual_booking = self.parking.park_id
         assert actual_booking == actual_booked
         print('~~~~')
-        print('WYBÓR MIEJSCA WYKONANE POPRAWNIE')
+        print('WYBÓR MIEJSCA WYKONANY POPRAWNIE')
         print('~~~~')
 
     def assert_reservation(self):
@@ -50,6 +63,6 @@ class AssertLogObject(object):
         assert actual_booked == expected_booked
         print('')
         print('~~~~')
-        print('ASSERCJA NA WYBÓR MIEJSCA PRZEBIEGŁA POMYŚLNIE')
+        print('ASSERCJA NA WYBÓR MIEJSCA PARKINGOWEGO PRZEBIEGŁA POMYŚLNIE')
         print('~~~~')
 

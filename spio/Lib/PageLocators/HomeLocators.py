@@ -4,6 +4,7 @@ class HomeLocators(object):
     surname_input = "//input[@id='surname']"
     button_submit = "//button[contains(@class, 'form__login')]"
     alert_error = "//label[@for='surname']/span[@class='simple-label__error']"
+    alert_id_error = "//label[@for='number']/span[@class='simple-label__error']"
 
 
 class WelcomeLocators(object):

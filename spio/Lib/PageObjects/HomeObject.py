@@ -67,6 +67,24 @@ class HomeObject(object):
         log.click()
         time.sleep(2)
 
+    def blank_login(self):
+        idlog = self.driver.find_element_by_xpath(HomeLocators().cardid_input)
+        idlog.clear()
+        time.sleep(2)
+
+        namelog = self.driver.find_element_by_xpath(HomeLocators().name_input)
+        namelog.clear()
+        time.sleep(2)
+
+        namelog = self.driver.find_element_by_xpath(HomeLocators().surname_input)
+        namelog.clear()
+        time.sleep(2)
+
+        log = self.driver.find_element_by_xpath(HomeLocators().button_submit)
+        log.click()
+        time.sleep(2)
+
+
     def welcome(self):
         choose = self.driver.find_element_by_xpath(WelcomeLocators().welcome_button)
         choose.click()
