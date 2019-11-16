@@ -1,2 +1,2 @@
 # parkando-test
-Automatic test in python
+Automation tests Python
